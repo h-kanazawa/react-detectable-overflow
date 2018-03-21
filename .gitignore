@@ -1,4 +1,5 @@
 node_modules/
 dist/
+demo/build/
 **/.DS_Store
 *.log

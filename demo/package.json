@@ -2,6 +2,7 @@
   "name": "react-detectable-overflow-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://h-kanazawa.github.io/react-detectable-overflow/",
   "dependencies": {
     "@types/react-bootstrap": "^0.32.6",
     "react": "^16.2.0",
