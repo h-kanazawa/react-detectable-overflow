@@ -1,5 +1,7 @@
 test/
 demo/
+docs/
+bin/
 node_modules/
 *.log
 **/.DS_Store
