@@ -1,0 +1,23 @@
+.app-header {
+  display: table;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 32px;
+  background-color: #222;
+  color: white;
+}
+
+.app-title {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0px;
+  font-size: 1.5em;
+}
+
+.output {
+  height: 35px;
+  padding: 6px 9px 6px 9px;
+  font-size: 13px;
+  border-radius: 3px;
+}

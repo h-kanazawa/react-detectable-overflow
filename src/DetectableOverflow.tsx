@@ -5,6 +5,7 @@ export interface Props {
   value: string;
   tag?: string;
   style?: object;
+  className?: string;
   onChange?: (isOverflowed: boolean) => void;
 }
 
@@ -56,8 +57,10 @@ export class DetectableOverflow extends React.Component<Props, States> {
   render() {
     const tag = this.props.tag ? this.props.tag : defaultTag;
     const style = this.props.style ? this.props.style : defaultStyle;
+    const className = this.props.className ? this.props.className : '';
     const props = {
       style,
+      className,
       ref: (el: Element | null) => {
         this.ref = (el instanceof HTMLElement) ? el : null;
       },
