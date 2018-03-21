@@ -2,6 +2,8 @@
 
 A React component which is able to detect changes in the state that the contents is overflowed.
 
+## [Demo](https://h-kanazawa.github.io/react-detectable-overflow/index.html)
+
 ## Install
 
 ```
@@ -19,6 +21,7 @@ yarn add react-detectable-overflow
 |value|true|string|||
 |tag||string|element type (e.g. `'p'`, `'div'`)|'div'|
 |style||object|css style of the element|{<br>width: '100%',<br>textOverflow: 'ellipsis',<br>whiteSpace: 'nowrap',<br>overflow: 'hidden',<br>}|
+|className||string|class names|''|
 |onChange||(isOverflowed: boolean) => void|callback function called when its overflowing status is changed|
 
 ## Example

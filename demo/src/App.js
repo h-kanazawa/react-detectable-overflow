@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     const repoURL = 'https://github.com/h-kanazawa/react-detectable-overflow';
-    const demoURL = 'https://github.com/h-kanazawa/react-detectable-overflow/tree/master/docs/src/App.js';
+    const demoURL = 'https://github.com/h-kanazawa/react-detectable-overflow/tree/master/demo/src/App.js';
 
     return (
       <div>
