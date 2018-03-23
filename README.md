@@ -1,5 +1,7 @@
 # React Detectable Overflow
 
+![Circle Status](https://circleci.com/gh/h-kanazawa/react-detectable-overflow.svg?style=shield&circle-token=bdff2eda82abf6802195c4c9935852b1f276745f)
+
 A React component which is able to detect changes in the state that the contents is overflowed.
 
 ## [Demo](https://h-kanazawa.github.io/react-detectable-overflow/index.html)
