@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  test_and_build:
     docker:
       - image: circleci/node:8.10
     steps:
@@ -19,10 +19,43 @@ jobs:
       - run:
           name: Test
           command: yarn test
-
+      - run:
+          name: Build
+          command: yarn build
+      - persist_to_workspace:
+          root: /home/circleci/project
+          paths:
+            - dist
+  publish:
+    docker:
+      - image: circleci/node:8.10
+    steps:
+      - checkout
+      - run:
+          name: Set ~/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+      - attach_workspace:
+          at: /home/circleci/project
+      - run:
+          name: Publish if the version hasn't been published
+          command: ~/project/bin/publish.sh
 
 workflows:
   version: 2
-  test:
+  master:
     jobs:
-      - test
+      - test_and_build
+      - publish:
+          requires:
+            - test_and_build
+          filters:
+            branches:
+              only:
+                - master
+  other_blanches:
+    jobs:
+      - test_and_build:
+          filters:
+            branches:
+              ignore:
+                - master
