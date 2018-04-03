@@ -2,7 +2,6 @@ import * as React from 'react';
 import { default as ReactResizeDetector } from 'react-resize-detector';
 
 export interface Props {
-  value: string;
   tag?: string;
   style?: object;
   className?: string;
@@ -70,7 +69,7 @@ export class DetectableOverflow extends React.Component<Props, States> {
       tag,
       props,
       <ReactResizeDetector handleWidth onResize={this.updateState} />,
-      this.props.value,
+      this.props.children,
     );
   }
 }
