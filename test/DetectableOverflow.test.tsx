@@ -15,8 +15,8 @@ describe('DetectableOverflow', () => {
     expect(wrapper.find('abc').exists()).toBeTruthy();
   });
 
-  it('renders `value` argument as a child', () => {
-  const wrapper = enzyme.shallow(<DetectableOverflow>abc</DetectableOverflow>);
+  it('renders a child element.', () => {
+    const wrapper = enzyme.shallow(<DetectableOverflow>abc</DetectableOverflow>);
     expect(wrapper.find('div').childAt(1).text()).toEqual('abc');
   });
 });

@@ -21,7 +21,6 @@ yarn add react-detectable-overflow
 
 |prop|required|type|description|default|
 |:--|:--|:--|:--|:--|
-|value|true|string|||
 |tag||string|element type (e.g. `'p'`, `'div'`)|'div'|
 |style||object|css style of the element|{<br>width: '100%',<br>textOverflow: 'ellipsis',<br>whiteSpace: 'nowrap',<br>overflow: 'hidden',<br>}|
 |className||string|class names|''|
@@ -46,10 +45,9 @@ class SampleComponent extends React.Component {
 
   render {
     return (
-      <DetectableOverflow
-        value="This is a sample text."
-        onChange={this.handleChange}
-        />
+      <DetectableOverflow onChange={this.handleChange}>
+        This is a sample text.
+      </DetectableOverflow>
     );
   }
 }
@@ -57,12 +55,11 @@ class SampleComponent extends React.Component {
 
 ## Caution
 
-Be careful when you change the length of `value` by onChange callback. The following code perhaps causes the infinite loop of changing `isOverflowed` state.
+Be careful when you change the length of `children` contents by onChange callback. The following code perhaps causes the infinite loop of changing `isOverflowed` state.
 
 ```jsx
 // DO NOT WRITE LIKE THIS!
 <DetectableOverflow
-  value={this.state.value}
   onChange={(isOverflowed) => {
     if (isOverflowed) {
       this.setState({ value: 'short' });
@@ -70,7 +67,9 @@ Be careful when you change the length of `value` by onChange callback. The follo
       this.setState({ value: 'loooooooooooooooooooooooooooooooooooooong' });
     }
   }}
-  />
+  >
+  {this.state.value}
+</DetectableOverflow>
 ```
 
 ## License
