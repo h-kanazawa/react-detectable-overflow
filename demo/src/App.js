@@ -48,7 +48,7 @@ class App extends Component {
                 You can see this page's source code <a href={demoURL}>here</a>.
               </p>
 
-              <Form>
+              <Form onSubmit={e => {e.preventDefault()}}>
                 <FormGroup controlId="input" bsSize="sm">
                   <ControlLabel>input text</ControlLabel>
                   <FormControl type="text" value={this.state.input} onChange={this.handleChangeInput} />
