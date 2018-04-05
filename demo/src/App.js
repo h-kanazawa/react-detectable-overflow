@@ -48,7 +48,7 @@ class App extends Component {
                 You can see this page's source code <a href={demoURL}>here</a>.
               </p>
 
-              <Form>
+              <Form onSubmit={e => {e.preventDefault()}}>
                 <FormGroup controlId="input" bsSize="sm">
                   <ControlLabel>input text</ControlLabel>
                   <FormControl type="text" value={this.state.input} onChange={this.handleChangeInput} />
@@ -78,10 +78,11 @@ class App extends Component {
                         width: this.state.width,
                         backgroundColor: this.state.isOverflowed ? '#F9E9CF' : '#BCF2E7',
                       }}
-                      value={this.state.input}
                       onChange={isOverflowed => this.handleChangeOverflow(isOverflowed)}
                       className="output"
-                      />
+                      >
+                      {this.state.input}
+                    </DetectableOverflow>
                 </FormGroup>
               </Form>
             </Col>
