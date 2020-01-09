@@ -1,6 +1,22 @@
 {
-  "main.css": "static/css/main.a36f1837.css",
-  "main.css.map": "static/css/main.a36f1837.css.map",
-  "main.js": "static/js/main.20fcea59.js",
-  "main.js.map": "static/js/main.20fcea59.js.map"
+  "files": {
+    "main.css": "/react-detectable-overflow/static/css/main.20d6efae.chunk.css",
+    "main.js": "/react-detectable-overflow/static/js/main.83a2324c.chunk.js",
+    "main.js.map": "/react-detectable-overflow/static/js/main.83a2324c.chunk.js.map",
+    "runtime-main.js": "/react-detectable-overflow/static/js/runtime-main.78a199d5.js",
+    "runtime-main.js.map": "/react-detectable-overflow/static/js/runtime-main.78a199d5.js.map",
+    "static/js/2.3d620b5b.chunk.js": "/react-detectable-overflow/static/js/2.3d620b5b.chunk.js",
+    "static/js/2.3d620b5b.chunk.js.map": "/react-detectable-overflow/static/js/2.3d620b5b.chunk.js.map",
+    "index.html": "/react-detectable-overflow/index.html",
+    "precache-manifest.5e988efa15241793e6855ca46b43128c.js": "/react-detectable-overflow/precache-manifest.5e988efa15241793e6855ca46b43128c.js",
+    "service-worker.js": "/react-detectable-overflow/service-worker.js",
+    "static/css/main.20d6efae.chunk.css.map": "/react-detectable-overflow/static/css/main.20d6efae.chunk.css.map",
+    "static/js/2.3d620b5b.chunk.js.LICENSE": "/react-detectable-overflow/static/js/2.3d620b5b.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.78a199d5.js",
+    "static/js/2.3d620b5b.chunk.js",
+    "static/css/main.20d6efae.chunk.css",
+    "static/js/main.83a2324c.chunk.js"
+  ]
 }

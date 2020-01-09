@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# node v8.10.0~ and npm v5.5.0 are required.
+# node v12.14.0~ and npm v6.13.4~ are required.
 
 : "Push current working directory" && {
   work_dir="$(cd "$(dirname "$0")" && pwd)"

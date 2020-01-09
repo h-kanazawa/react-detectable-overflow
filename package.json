@@ -1,6 +1,6 @@
 {
   "name": "react-detectable-overflow",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A React component that informs when the overflowed status is changed.",
   "author": {
     "name": "Hotaka Kanazawa",
@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/h-kanazawa/react-detectable-overflow/issues"
   },
+  "engines": {
+    "node": ">=12.14.0"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -26,27 +29,27 @@
     "test": "yarn lint && yarn jest"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.9",
-    "@types/enzyme-adapter-react-16": "^1.0.2",
-    "@types/jest": "^22.2.0",
-    "@types/react": "^16.0.40",
-    "@types/react-dom": "^16.0.4",
-    "@types/react-resize-detector": "^2.1.0",
-    "@types/sinon": "^4.3.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^22.4.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "rimraf": "^2.6.2",
-    "sinon": "^4.4.6",
-    "ts-jest": "^22.4.2",
-    "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.8.0",
-    "typescript": "^2.7.2"
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.25",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-resize-detector": "^4.2.0",
+    "@types/sinon": "^7.5.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^24.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rimraf": "^3.0.0",
+    "sinon": "^8.0.4",
+    "ts-jest": "24.3.0",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.7.4"
   },
   "dependencies": {
-    "react-resize-detector": "^2.2.0"
+    "react-resize-detector": "^4.2.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",
