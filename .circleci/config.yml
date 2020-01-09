@@ -52,10 +52,3 @@ workflows:
             branches:
               only:
                 - master
-  other_blanches:
-    jobs:
-      - test_and_build:
-          filters:
-            branches:
-              ignore:
-                - master
