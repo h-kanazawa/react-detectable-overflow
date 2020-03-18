@@ -66,6 +66,8 @@
       "js",
       "json"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/test/setup.ts"
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setup.ts"
+    ]
   }
 }
