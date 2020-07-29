@@ -75,3 +75,9 @@ Be careful when you change the length of `children` contents by onChange callbac
 ## License
 
 This package is released under the MIT License, see [LICENSE](./LICENSE)
+
+## Changelog
+
+#### 0.4.0
+
+- BREAKING CHANGE: Support vertical overflow detection
