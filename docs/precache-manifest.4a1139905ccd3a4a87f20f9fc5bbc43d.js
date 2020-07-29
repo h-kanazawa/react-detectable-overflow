@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a4882aee56f77847c572490193469c0",
+    "revision": "cab491683b7fce1b66eb34b7ea6dcec8",
     "url": "/react-detectable-overflow/index.html"
   },
   {
-    "revision": "048442b7f775eaf054c4",
+    "revision": "bb40551f50d02ebc5216",
     "url": "/react-detectable-overflow/static/css/main.20d6efae.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-detectable-overflow/static/js/2.924eeaac.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "048442b7f775eaf054c4",
-    "url": "/react-detectable-overflow/static/js/main.d0dc4376.chunk.js"
+    "revision": "bb40551f50d02ebc5216",
+    "url": "/react-detectable-overflow/static/js/main.aa1ff2f8.chunk.js"
   },
   {
     "revision": "8d80ce0c34f3d4317517",
