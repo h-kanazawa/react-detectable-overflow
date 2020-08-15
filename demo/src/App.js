@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Col, ControlLabel, Form, FormControl, FormGroup, Label, Grid, Radio, Row } from 'react-bootstrap';
 import DetectableOverflow from 'react-detectable-overflow';
 import './App.css';
 
@@ -16,61 +15,70 @@ const App = () => {
       <header className="app-header">
         <h1 className="app-title">React Detectable Overflow</h1>
       </header>
+      <div className="app-body">
+        <p>
+          This is a demo of <a href={repoURL}>react component DetectableOverflow</a>. Try to change the input text, the
+          width, and browser window's size. You can see this page's source code <a href={demoURL}>here</a>.
+        </p>
 
-      <Grid>
-        <Row>
-          <Col xs={12} sm={6} smOffset={3}>
-            <p>
-              This is a demo of <a href={repoURL}>react component DetectableOverflow</a>. Try to change the input text,
-              the width, and browser window's size. You can see this page's source code <a href={demoURL}>here</a>.
-            </p>
+        <label htmlFor="input-text" className="app-label">
+          input text
+        </label>
+        <input
+          id="input-text"
+          className="input-text"
+          type="text"
+          value={input}
+          onChange={(e) => updateInput(e.target.value)}
+        />
 
-            <Form
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <FormGroup controlId="input" bsSize="sm">
-                <ControlLabel>input text</ControlLabel>
-                <FormControl type="text" value={input} onChange={(e) => updateInput(e.target.value)} />
-              </FormGroup>
+        <legend className="app-label">width</legend>
+        <label className="radio">
+          <input type="radio" className="radio-button" checked={width === ''} onChange={() => updateWidth('')} />
+          not specified
+        </label>
+        <label className="radio">
+          <input
+            type="radio"
+            className="radio-button"
+            checked={width === '40px'}
+            onChange={() => updateWidth('40px')}
+          />
+          40px
+        </label>
+        <label className="radio">
+          <input
+            type="radio"
+            className="radio-button"
+            checked={width === '120px'}
+            onChange={() => updateWidth('120px')}
+          />
+          120px
+        </label>
 
-              <FormGroup controlId="width" bsSize="sm">
-                <ControlLabel>width</ControlLabel>
-                <Radio checked={width === ''} onChange={() => updateWidth('')}>
-                  not specified
-                </Radio>
-                <Radio checked={width === '40px'} onChange={() => updateWidth('40px')}>
-                  40px
-                </Radio>
-                <Radio checked={width === '120px'} onChange={() => updateWidth('120px')}>
-                  120px
-                </Radio>
-              </FormGroup>
-
-              <FormGroup controlId="output" bsSize="sm">
-                <ControlLabel>
-                  {'Rendered <DetectableOverflow/> '}
-                  <Label bsStyle={isOverflow ? 'warning' : 'success'}>{`isOverflowed: ${isOverflow}`}</Label>
-                </ControlLabel>
-                <DetectableOverflow
-                  style={{
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    width: width,
-                    backgroundColor: isOverflow ? '#F9E9CF' : '#BCF2E7',
-                  }}
-                  onChange={updateIsOverflow}
-                  className="output"
-                >
-                  {input}
-                </DetectableOverflow>
-              </FormGroup>
-            </Form>
-          </Col>
-        </Row>
-      </Grid>
+        <label htmlFor="output-text" className="app-label">
+          {'Rendered <DetectableOverflow/> '}
+          <label
+            className="overflow-state"
+            style={{
+              backgroundColor: isOverflow ? '#F39C12' : '#18BC9C',
+            }}
+          >{`isOverflowed: ${isOverflow}`}</label>
+        </label>
+        <DetectableOverflow
+          style={{
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            width: width,
+            backgroundColor: isOverflow ? '#F9E9CF' : '#BCF2E7',
+          }}
+          onChange={updateIsOverflow}
+          className="output"
+        >
+          {input}
+        </DetectableOverflow>
+      </div>
     </div>
   );
 };
