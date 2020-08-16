@@ -63,8 +63,9 @@
 }
 
 .output {
-  height: 35px;
   padding: 6px 9px 6px 9px;
   font-size: 13px;
+  line-height: 1.5;
+  min-height: 32.5px;
   border-radius: 3px;
 }
