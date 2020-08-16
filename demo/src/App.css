@@ -3,9 +3,7 @@
   text-align: center;
   height: 100px;
   width: 100%;
-  margin-bottom: 32px;
   background-color: #222;
-  color: white;
 }
 
 .app-title {
@@ -13,11 +11,61 @@
   vertical-align: middle;
   margin: 0px;
   font-size: 1.5em;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.app-body {
+  margin: 0 auto;
+  padding: 32px;
+  max-width: 600px;
+}
+
+.app-label {
+  display: block;
+  margin: 16px 0 4px 0;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.input-text {
+  width: 100%;
+  padding: 6px 9px 6px 9px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 3px;
+  border-color: #dae2ea;
+  border-style: solid;
+  box-shadow: none;
+  outline: 0;
+}
+
+.input-text:focus {
+  border-color: #2c3e50;
+}
+
+.radio {
+  display: block;
+}
+
+.radio-button {
+  margin: 0 8px 0 0;
+}
+
+.overflow-state {
+  color: white;
+  height: 15px;
+  padding: 3px 6px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 3px;
 }
 
 .output {
-  height: 35px;
   padding: 6px 9px 6px 9px;
   font-size: 13px;
+  line-height: 1.5;
+  min-height: 32.5px;
   border-radius: 3px;
 }
