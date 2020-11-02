@@ -22,11 +22,11 @@ const defaultStyle: object = {
 
 export class DetectableOverflow extends React.Component<Props, States> {
 
-  private ref: HTMLElement | null;
+  private ref: React.RefObject<HTMLElement>;
 
   constructor(props: Props) {
     super(props);
-    this.ref = null;
+    this.ref = React.createRef<HTMLElement>();
     this.state = { isOverflowed: false };
     this.updateState = this.updateState.bind(this);
   }
@@ -40,13 +40,13 @@ export class DetectableOverflow extends React.Component<Props, States> {
   }
 
   updateState() {
-    if (this.ref === null) {
+    if (this.ref.current === null) {
       return;
     }
 
     const newState =
-      this.ref.offsetWidth !== this.ref.scrollWidth ||
-      this.ref.offsetHeight !== this.ref.scrollHeight;
+      this.ref.current.offsetWidth !== this.ref.current.scrollWidth ||
+      this.ref.current.offsetHeight !== this.ref.current.scrollHeight;
 
     if (newState === this.state.isOverflowed) {
       return;
@@ -62,19 +62,21 @@ export class DetectableOverflow extends React.Component<Props, States> {
     const tag = this.props.tag ? this.props.tag : defaultTag;
     const style = this.props.style ? this.props.style : defaultStyle;
     const className = this.props.className ? this.props.className : '';
-    const props = {
-      style,
-      className,
-      ref: (el: Element | null) => {
-        this.ref = (el instanceof HTMLElement) ? el : null;
-      },
-    };
 
-    return React.createElement(
-      tag,
-      props,
-      <ReactResizeDetector handleWidth onResize={this.updateState} />,
-      this.props.children,
+    return (
+      <ReactResizeDetector handleWidth onResize={this.updateState} targetRef={this.ref}>
+        {
+          React.createElement(
+            tag,
+            {
+              style,
+              className,
+              ref: this.ref,
+            },
+            this.props.children,
+          )
+        }
+      </ReactResizeDetector>
     );
   }
 }
