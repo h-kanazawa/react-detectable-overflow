@@ -11,7 +11,7 @@ const App = () => {
   const [isOverflow, updateIsOverflow] = useState(false);
 
   return (
-    <div>
+    <React.StrictMode>
       <header className="app-header">
         <h1 className="app-title">React Detectable Overflow</h1>
       </header>
@@ -79,7 +79,7 @@ const App = () => {
           {input}
         </DetectableOverflow>
       </div>
-    </div>
+    </React.StrictMode>
   );
 };
 
