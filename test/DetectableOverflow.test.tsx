@@ -17,6 +17,6 @@ describe('DetectableOverflow', () => {
 
   it('renders a child element.', () => {
     const wrapper = enzyme.shallow(<DetectableOverflow>abc</DetectableOverflow>);
-    expect(wrapper.find('div').childAt(1).text()).toEqual('abc');
+    expect(wrapper.find('div').childAt(0).text()).toEqual('abc');
   });
 });
