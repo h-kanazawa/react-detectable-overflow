@@ -46,7 +46,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "react-resize-detector": "^5.2.0"
+    "react-resize-detector": "^6.7.4"
   },
   "peerDependencies": {
     "react": ">=16.0.0",
