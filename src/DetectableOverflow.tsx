@@ -21,7 +21,6 @@ const defaultStyle: object = {
 };
 
 export class DetectableOverflow extends React.Component<Props, States> {
-
   private ref: React.RefObject<HTMLElement>;
 
   constructor(props: Props) {
@@ -45,8 +44,8 @@ export class DetectableOverflow extends React.Component<Props, States> {
     }
 
     const newState =
-      this.ref.current.offsetWidth !== this.ref.current.scrollWidth ||
-      this.ref.current.offsetHeight !== this.ref.current.scrollHeight;
+      this.ref.current.offsetWidth < this.ref.current.scrollWidth ||
+      this.ref.current.offsetHeight < this.ref.current.scrollHeight;
 
     if (newState === this.state.isOverflowed) {
       return;
@@ -65,17 +64,15 @@ export class DetectableOverflow extends React.Component<Props, States> {
 
     return (
       <ReactResizeDetector handleWidth onResize={this.updateState} targetRef={this.ref}>
-        {
-          React.createElement(
-            tag,
-            {
-              style,
-              className,
-              ref: this.ref,
-            },
-            this.props.children,
-          )
-        }
+        {React.createElement(
+          tag,
+          {
+            style,
+            className,
+            ref: this.ref,
+          },
+          this.props.children
+        )}
       </ReactResizeDetector>
     );
   }
