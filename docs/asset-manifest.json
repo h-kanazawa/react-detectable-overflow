@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-detectable-overflow/static/css/main.ff9fca43.chunk.css",
-    "main.js": "/react-detectable-overflow/static/js/main.3cf137b6.chunk.js",
-    "main.js.map": "/react-detectable-overflow/static/js/main.3cf137b6.chunk.js.map",
+    "main.js": "/react-detectable-overflow/static/js/main.cabe9e69.chunk.js",
+    "main.js.map": "/react-detectable-overflow/static/js/main.cabe9e69.chunk.js.map",
     "runtime-main.js": "/react-detectable-overflow/static/js/runtime-main.43660dea.js",
     "runtime-main.js.map": "/react-detectable-overflow/static/js/runtime-main.43660dea.js.map",
     "static/js/2.ef0379de.chunk.js": "/react-detectable-overflow/static/js/2.ef0379de.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.43660dea.js",
     "static/js/2.ef0379de.chunk.js",
     "static/css/main.ff9fca43.chunk.css",
-    "static/js/main.3cf137b6.chunk.js"
+    "static/js/main.cabe9e69.chunk.js"
   ]
 }
