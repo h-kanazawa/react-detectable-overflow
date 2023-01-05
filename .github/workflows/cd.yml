@@ -1,0 +1,21 @@
+name: Deploy to npm
+on: workflow_dispatch
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '12'
+          cache: 'yarn'
+      - run: npm install -g yarn
+      - run: yarn --prefer-offline
+      - run: yarn test
+      - run: yarn build
+      - shell: bash
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: ./bin/publish.sh
