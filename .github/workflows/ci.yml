@@ -12,3 +12,4 @@ jobs:
       - run: npm install -g yarn
       - run: yarn --prefer-offline
       - run: yarn test
+      - run: yarn build
