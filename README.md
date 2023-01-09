@@ -1,6 +1,5 @@
 # React Detectable Overflow
 
-[![Circle Status](https://circleci.com/gh/h-kanazawa/react-detectable-overflow.svg?style=shield&circle-token=bdff2eda82abf6802195c4c9935852b1f276745f)](https://circleci.com/gh/h-kanazawa/react-detectable-overflow)
 [![npm version](https://badge.fury.io/js/react-detectable-overflow.svg)](https://badge.fury.io/js/react-detectable-overflow)
 
 A React component which is able to detect changes in the state that the contents is overflowed.
@@ -12,19 +11,21 @@ A React component which is able to detect changes in the state that the contents
 ```
 npm install react-detectable-overflow
 ```
+
 or
+
 ```
 yarn add react-detectable-overflow
 ```
 
 ## Props
 
-|prop|required|type|description|default|
-|:--|:--|:--|:--|:--|
-|tag||string|element type (e.g. `'p'`, `'div'`)|'div'|
-|style||object|css style of the element|{<br>width: '100%',<br>textOverflow: 'ellipsis',<br>whiteSpace: 'nowrap',<br>overflow: 'hidden',<br>}|
-|className||string|class names|''|
-|onChange||(isOverflowed: boolean) => void|callback function called when its overflowing status is changed|
+| prop      | required | type                            | description                                                     | default                                                                                               |
+| :-------- | :------- | :------------------------------ | :-------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| tag       |          | string                          | element type (e.g. `'p'`, `'div'`)                              | 'div'                                                                                                 |
+| style     |          | object                          | css style of the element                                        | {<br>width: '100%',<br>textOverflow: 'ellipsis',<br>whiteSpace: 'nowrap',<br>overflow: 'hidden',<br>} |
+| className |          | string                          | class names                                                     | ''                                                                                                    |
+| onChange  |          | (isOverflowed: boolean) => void | callback function called when its overflowing status is changed |
 
 ## Example
 
@@ -67,7 +68,7 @@ Be careful when you change the length of `children` contents by onChange callbac
       this.setState({ value: 'loooooooooooooooooooooooooooooooooooooong' });
     }
   }}
-  >
+>
   {this.state.value}
 </DetectableOverflow>
 ```
