@@ -19,5 +19,5 @@
 
   cd "${repo_top}" || exit 1
   rm -r ./docs/*
-  cp -r ./demo/build/ ./docs/
+  cp -r ./demo/build/* ./docs/
 }
