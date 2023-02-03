@@ -1,14 +1,96 @@
-import React, { useState } from 'react';
-import DetectableOverflow from 'react-detectable-overflow';
+import React, { useCallback, useState } from 'react';
+import { default as DetectableOverflow, useOverflowDetector } from 'react-detectable-overflow';
 import './App.css';
 
 const repoURL = 'https://github.com/h-kanazawa/react-detectable-overflow';
 const demoURL = 'https://github.com/h-kanazawa/react-detectable-overflow/tree/master/demo/src/App.js';
 
+const SampleComponent = () => {
+  const [value, setValue] = useState('short a a a a a a ');
+
+  return (
+    <DetectableOverflow
+      onChange={(overflow) => setValue(overflow ? 'short' : 'loooooooooooooooooooooooooooooooooooooong')}
+      style={{ width: '120px' }}
+    >
+      a {value}
+    </DetectableOverflow>
+  );
+};
+
+// Demo using useOverflowDetector hook
+const HookDemo = ({ input, width }) => {
+  const onChangeOverflow = useCallback((overflow) => {
+    console.log(`useOverflowDetector onChange(${overflow}) is called`);
+  }, []);
+
+  const { overflow, ref } = useOverflowDetector({
+    onChange: onChangeOverflow,
+  });
+
+  return (
+    <>
+      <label htmlFor="output-text" className="app-label">
+        {'useOverflowDetector '}
+        <label
+          className="overflow-state"
+          style={{
+            backgroundColor: overflow ? '#F39C12' : '#18BC9C',
+          }}
+        >{`overflow: ${overflow}`}</label>
+      </label>
+      <div
+        ref={ref}
+        style={{
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          width: width,
+          backgroundColor: overflow ? '#F9E9CF' : '#BCF2E7',
+        }}
+        className="output"
+      >
+        {input}
+      </div>
+    </>
+  );
+};
+
+// Demo using DetectableOverflow component
+const ClassicClassDemo = ({ input, width }) => {
+  const [overflow, setOverflow] = useState(false);
+
+  return (
+    <>
+      <label htmlFor="output-text" className="app-label">
+        {'<DetectableOverflow/> '}
+        <label
+          className="overflow-state"
+          style={{
+            backgroundColor: overflow ? '#F39C12' : '#18BC9C',
+          }}
+        >{`overflow: ${overflow}`}</label>
+      </label>
+      <DetectableOverflow
+        style={{
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          width: width,
+          backgroundColor: overflow ? '#F9E9CF' : '#BCF2E7',
+        }}
+        onChange={setOverflow}
+        className="output"
+      >
+        {input}
+      </DetectableOverflow>
+    </>
+  );
+};
+
 const App = () => {
   const [input, updateInput] = useState('');
   const [width, updateWidth] = useState('');
-  const [isOverflow, updateIsOverflow] = useState(false);
 
   return (
     <React.StrictMode>
@@ -17,8 +99,8 @@ const App = () => {
       </header>
       <div className="app-body">
         <p>
-          This is a demo of <a href={repoURL}>react component DetectableOverflow</a>. Try to change the input text, the
-          width, and browser window's size. You can see this page's source code <a href={demoURL}>here</a>.
+          This is a demo of <a href={repoURL}>react-detectable-overflow</a>. Try changing the input text, the width, and
+          browser's window size. You can see this page's source code <a href={demoURL}>here</a>.
         </p>
 
         <label htmlFor="input-text" className="app-label">
@@ -56,28 +138,11 @@ const App = () => {
           120px
         </label>
 
-        <label htmlFor="output-text" className="app-label">
-          {'Rendered <DetectableOverflow/> '}
-          <label
-            className="overflow-state"
-            style={{
-              backgroundColor: isOverflow ? '#F39C12' : '#18BC9C',
-            }}
-          >{`isOverflowed: ${isOverflow}`}</label>
-        </label>
-        <DetectableOverflow
-          style={{
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            width: width,
-            backgroundColor: isOverflow ? '#F9E9CF' : '#BCF2E7',
-          }}
-          onChange={updateIsOverflow}
-          className="output"
-        >
-          {input}
-        </DetectableOverflow>
+        <HookDemo input={input} width={width} />
+
+        <ClassicClassDemo input={input} width={width} />
+
+        <SampleComponent />
       </div>
     </React.StrictMode>
   );

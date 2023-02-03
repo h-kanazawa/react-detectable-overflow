@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/react-detectable-overflow.svg)](https://badge.fury.io/js/react-detectable-overflow)
 
-A React component which is able to detect changes in the state that the contents is overflowed.
+A React hook and component detecting overflow state.
 
 ## [Demo](https://h-kanazawa.github.io/react-detectable-overflow/index.html)
 
@@ -18,59 +18,74 @@ or
 yarn add react-detectable-overflow
 ```
 
-## Props
-
-| prop      | required | type                            | description                                                     | default                                                                                               |
-| :-------- | :------- | :------------------------------ | :-------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
-| tag       |          | string                          | element type (e.g. `'p'`, `'div'`)                              | 'div'                                                                                                 |
-| style     |          | object                          | css style of the element                                        | {<br>width: '100%',<br>textOverflow: 'ellipsis',<br>whiteSpace: 'nowrap',<br>overflow: 'hidden',<br>} |
-| className |          | string                          | class names                                                     | ''                                                                                                    |
-| onChange  |          | (isOverflowed: boolean) => void | callback function called when its overflowing status is changed |
-
 ## Example
+
+### Hook useOverflowDetector
+
+```jsx
+import * as React from 'react';
+import { useOverflowDetector } from 'react-detectable-overflow';
+
+const SampleComponent = () => {
+  const { ref, overflow } = useOverflowDetector(false);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        width: '120px',
+        backgroundColor: overflow ? 'red' : 'green',
+      }}
+    >
+      This is a sample text.
+    </div>
+  );
+};
+```
+
+### Class DetectableOverflow
 
 ```jsx
 import * as React from 'react';
 import DetectableOverflow from 'react-detectable-overflow';
 
-class SampleComponent extends React.Component {
+const SampleComponent = () => {
+  const [overflow, setOverflow] = useState(false);
 
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(isOverflowed) {
-    // do something
-  }
-
-  render {
-    return (
-      <DetectableOverflow onChange={this.handleChange}>
-        This is a sample text.
-      </DetectableOverflow>
-    );
-  }
-}
+  return (
+    <DetectableOverflow
+      onChange={setOverflow}
+      style={{
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        width: '120px',
+        backgroundColor: overflow ? '#F9E9CF' : '#BCF2E7',
+      }}
+    >
+      This is a sample text.
+    </DetectableOverflow>
+  );
+};
 ```
 
 ## Caution
 
-Be careful when you change the length of `children` contents by onChange callback. The following code perhaps causes the infinite loop of changing `isOverflowed` state.
+Be careful when the size of `children` content depends on overflow state. The following code perhaps causes the infinite loop of changing `overflow` state.
 
 ```jsx
+import * as React from 'react';
+import { useOverflowDetector } from 'react-detectable-overflow';
+
 // DO NOT WRITE LIKE THIS!
-<DetectableOverflow
-  onChange={(isOverflowed) => {
-    if (isOverflowed) {
-      this.setState({ value: 'short' });
-    } else {
-      this.setState({ value: 'loooooooooooooooooooooooooooooooooooooong' });
-    }
-  }}
->
-  {this.state.value}
-</DetectableOverflow>
+const SampleComponent = () => {
+  const { ref, overflow } = useOverflowDetector(false);
+
+  return <div ref={ref}>{overflow ? 'short' : 'loooooooooooooooooooooooooooooooooooooong'}</div>;
+};
 ```
 
 ## License
@@ -78,6 +93,10 @@ Be careful when you change the length of `children` contents by onChange callbac
 This package is released under the MIT License, see [LICENSE](./LICENSE)
 
 ## Changelog
+
+#### 0.7.0
+
+- Add useOverflowDetector
 
 #### 0.4.0
 
