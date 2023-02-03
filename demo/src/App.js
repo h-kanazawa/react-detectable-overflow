@@ -5,19 +5,6 @@ import './App.css';
 const repoURL = 'https://github.com/h-kanazawa/react-detectable-overflow';
 const demoURL = 'https://github.com/h-kanazawa/react-detectable-overflow/tree/master/demo/src/App.js';
 
-const SampleComponent = () => {
-  const [value, setValue] = useState('short a a a a a a ');
-
-  return (
-    <DetectableOverflow
-      onChange={(overflow) => setValue(overflow ? 'short' : 'loooooooooooooooooooooooooooooooooooooong')}
-      style={{ width: '120px' }}
-    >
-      a {value}
-    </DetectableOverflow>
-  );
-};
-
 // Demo using useOverflowDetector hook
 const HookDemo = ({ input, width }) => {
   const onChangeOverflow = useCallback((overflow) => {
@@ -141,8 +128,6 @@ const App = () => {
         <HookDemo input={input} width={width} />
 
         <ClassicClassDemo input={input} width={width} />
-
-        <SampleComponent />
       </div>
     </React.StrictMode>
   );
