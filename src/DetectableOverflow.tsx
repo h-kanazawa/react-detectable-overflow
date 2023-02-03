@@ -5,11 +5,12 @@ export interface Props {
   tag?: string;
   style?: object;
   className?: string;
-  onChange?: (isOverflowed: boolean) => void;
+  onChange?: (overflow: boolean) => void;
+  children?: React.ReactNode;
 }
 
 export interface States {
-  isOverflowed: boolean;
+  overflow: boolean;
 }
 
 const defaultTag: string = 'div';
@@ -26,7 +27,7 @@ export class DetectableOverflow extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props);
     this.ref = React.createRef<HTMLElement>();
-    this.state = { isOverflowed: false };
+    this.state = { overflow: false };
     this.updateState = this.updateState.bind(this);
   }
 
@@ -47,11 +48,11 @@ export class DetectableOverflow extends React.Component<Props, States> {
       this.ref.current.offsetWidth < this.ref.current.scrollWidth ||
       this.ref.current.offsetHeight < this.ref.current.scrollHeight;
 
-    if (newState === this.state.isOverflowed) {
+    if (newState === this.state.overflow) {
       return;
     }
 
-    this.setState({ isOverflowed: newState });
+    this.setState({ overflow: newState });
     if (this.props.onChange) {
       this.props.onChange(newState);
     }
