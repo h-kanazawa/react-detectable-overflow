@@ -27,7 +27,7 @@ import * as React from 'react';
 import { useOverflowDetector } from 'react-detectable-overflow';
 
 const SampleComponent = () => {
-  const { ref, overflow } = useOverflowDetector(false);
+  const { ref, overflow } = useOverflowDetector();
 
   return (
     <div
@@ -82,7 +82,7 @@ import { useOverflowDetector } from 'react-detectable-overflow';
 
 // DO NOT WRITE LIKE THIS!
 const SampleComponent = () => {
-  const { ref, overflow } = useOverflowDetector(false);
+  const { ref, overflow } = useOverflowDetector();
 
   return <div ref={ref}>{overflow ? 'short' : 'loooooooooooooooooooooooooooooooooooooong'}</div>;
 };
