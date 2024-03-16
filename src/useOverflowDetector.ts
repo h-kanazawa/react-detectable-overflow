@@ -5,7 +5,7 @@ export interface useOverflowDetectorProps {
   onChange?: (overflow: boolean) => void;
 }
 
-export function useOverflowDetector(props: useOverflowDetectorProps) {
+export function useOverflowDetector(props: useOverflowDetectorProps = {}) {
   const [overflow, setOverflow] = useState<boolean>(false);
   const ref = useRef<HTMLElement>();
 
