@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-detectable-overflow/static/css/main.81293a4f.css",
-    "main.js": "/react-detectable-overflow/static/js/main.73316c82.js",
+    "main.js": "/react-detectable-overflow/static/js/main.f37e759a.js",
     "index.html": "/react-detectable-overflow/index.html",
     "main.81293a4f.css.map": "/react-detectable-overflow/static/css/main.81293a4f.css.map",
-    "main.73316c82.js.map": "/react-detectable-overflow/static/js/main.73316c82.js.map"
+    "main.f37e759a.js.map": "/react-detectable-overflow/static/js/main.f37e759a.js.map"
   },
   "entrypoints": [
     "static/css/main.81293a4f.css",
-    "static/js/main.73316c82.js"
+    "static/js/main.f37e759a.js"
   ]
 }
