@@ -6,7 +6,8 @@
     "outDir": "./dist",
     "strict": true,
     "jsx": "react",
-    "sourceMap": true
+    "sourceMap": true,
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*"
