@@ -20,20 +20,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf ./dist/* && tsc --build tsconfig.json",
+    "build": "git clean -dfx ./dist/ && tsc --build tsconfig.json",
     "jest": "jest",
     "test": "yarn jest"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "@types/sinon": "^7.5.1",
-    "jest": "26.6.0",
-    "rimraf": "^3.0.2",
-    "sinon": "^8.0.4",
-    "ts-jest": "26.5.0",
-    "typescript": "^4.3.5"
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.3"
   },
   "dependencies": {
     "react-resize-detector": "^8.0.4"
