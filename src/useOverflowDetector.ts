@@ -3,6 +3,8 @@ import { useResizeDetector } from 'react-resize-detector';
 
 export interface useOverflowDetectorProps {
   onChange?: (overflow: boolean) => void;
+  handleHeight?: boolean
+  handleWidth?: boolean
 }
 
 export function useOverflowDetector(props: useOverflowDetectorProps = {}) {
@@ -13,8 +15,13 @@ export function useOverflowDetector(props: useOverflowDetectorProps = {}) {
     if (ref.current == undefined) {
       return;
     }
+
+    const { handleWidth = true, handleHeight = true } = props;
+
     const newState =
-      ref.current.offsetWidth < ref.current.scrollWidth || ref.current.offsetHeight < ref.current.scrollHeight;
+      (handleWidth && ref.current.offsetWidth < ref.current.scrollWidth) ||
+      (handleHeight && ref.current.offsetHeight < ref.current.scrollHeight);
+
     if (newState === overflow) {
       return;
     }
