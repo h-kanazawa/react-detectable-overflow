@@ -7,6 +7,8 @@ export interface Props {
   className?: string;
   onChange?: (overflow: boolean) => void;
   children?: React.ReactNode;
+  handleHeight?: boolean
+  handleWidth?: boolean
 }
 
 export interface States {
@@ -44,9 +46,11 @@ export class DetectableOverflow extends React.Component<Props, States> {
       return;
     }
 
+    const { handleWidth = true, handleHeight = true } = this.props;
+
     const newState =
-      this.ref.current.offsetWidth < this.ref.current.scrollWidth ||
-      this.ref.current.offsetHeight < this.ref.current.scrollHeight;
+      (handleWidth && this.ref.current.offsetWidth < this.ref.current.scrollWidth) ||
+      (handleHeight && this.ref.current.offsetHeight < this.ref.current.scrollHeight);
 
     if (newState === this.state.overflow) {
       return;
