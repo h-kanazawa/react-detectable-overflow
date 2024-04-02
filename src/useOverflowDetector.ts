@@ -29,7 +29,7 @@ export function useOverflowDetector(props: useOverflowDetectorProps = {}) {
     if (props.onChange) {
       props.onChange(newState);
     }
-  }, [ref.current, props.onChange, setOverflow, overflow]);
+  }, [ref.current, props.handleWidth, props.handleHeight, props.onChange, setOverflow, overflow]);
 
   useResizeDetector({
     targetRef: ref,

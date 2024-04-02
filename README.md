@@ -94,6 +94,10 @@ This package is released under the MIT License, see [LICENSE](./LICENSE)
 
 ## Changelog
 
+#### 0.8.0
+
+- Add properties `handleHeight` and `handleWidth`
+
 #### 0.7.0
 
 - Add useOverflowDetector
