@@ -1,6 +1,6 @@
 {
   "name": "react-detectable-overflow",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "React hook/component to detect overflow state",
   "author": {
     "name": "Hotaka Kanazawa",
