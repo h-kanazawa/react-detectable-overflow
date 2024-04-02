@@ -7,8 +7,8 @@ export interface Props {
   className?: string;
   onChange?: (overflow: boolean) => void;
   children?: React.ReactNode;
-  handleHeight?: boolean
-  handleWidth?: boolean
+  handleHeight?: boolean;
+  handleWidth?: boolean;
 }
 
 export interface States {
