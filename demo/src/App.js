@@ -105,6 +105,35 @@ const RadioButtons = ({ title, selectedValue, options, onChange }) => {
   );
 };
 
+const OverflowEdgeDemo = () => {
+  const { ref, overflowTop, overflowBottom, overflowLeft, overflowRight } = useOverflowDetector({ epsilon: 8 });
+
+  const borderTop = `8px solid ${overflowTop ? '#F39C12' : '#18BC9C'}`;
+  const borderBottom = `8px solid ${overflowBottom ? '#F39C12' : '#18BC9C'}`;
+  const borderLeft = `8px solid ${overflowLeft ? '#F39C12' : '#18BC9C'}`;
+  const borderRight = `8px solid ${overflowRight ? '#F39C12' : '#18BC9C'}`;
+  return (
+    <>
+      <div>
+        overflowTop: {overflowTop ? "true" : "false"}
+        <br />
+        overflowBottom: {overflowBottom ? "true" : "false"}
+        <br />
+        overflowLeft: {overflowLeft ? "true" : "false"}
+        <br />
+        overflowRight: {overflowRight ? "true" : "false"}
+      </div>
+      <div ref={ref} style={{ height: "200px", width: "300px", borderTop, borderBottom, borderLeft, borderRight, overflow: 'scroll' }}>
+        <div style={{ height: "300px", width: "400px", background: "linear-gradient(45deg, #FFCCCC, #CCFFCC)", fontSize: '40px' }} >
+          A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+          <br />
+          1 2 3 4 5 6 7 8 9 0
+        </div>
+      </div>
+    </>
+  )
+}
+
 const App = () => {
   const [input, updateInput] = useState('');
   const [width, updateWidth] = useState('');
@@ -167,6 +196,10 @@ const App = () => {
         <HookDemo input={input} width={width} handleWidth={handleWidth} handleHeight={handleHeight} />
 
         <ClassicClassDemo input={input} width={width} handleWidth={handleWidth} handleHeight={handleHeight} />
+
+        <h2 className="">Detect overflow of each edge</h2>
+
+        <OverflowEdgeDemo />
       </div>
     </React.StrictMode>
   );
