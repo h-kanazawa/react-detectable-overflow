@@ -38,7 +38,7 @@ export function useOverflowDetector(props: useOverflowDetectorProps = {}) {
 
   useEffect(() => {
     updateState();
-  });
+  }, []);
 
   return {
     overflow,
