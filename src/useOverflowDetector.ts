@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef, useEffect } from 'react';
+import { type MutableRefObject, useCallback, useState, useRef, useEffect } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 
 export interface useOverflowDetectorProps {
@@ -7,9 +7,14 @@ export interface useOverflowDetectorProps {
   handleWidth?: boolean
 }
 
-export function useOverflowDetector(props: useOverflowDetectorProps = {}) {
+export interface useOverflowDetectorReturnType<T extends HTMLElement> {
+    overflow: boolean;
+    ref: MutableRefObject<T|null>;
+}
+
+export function useOverflowDetector<T extends HTMLElement = HTMLElement>(props: useOverflowDetectorProps = {}): useOverflowDetectorReturnType<T> {
   const [overflow, setOverflow] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<T>(null);
 
   const updateState = useCallback(() => {
     if (ref.current == undefined) {
